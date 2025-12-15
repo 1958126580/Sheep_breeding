@@ -27,38 +27,36 @@ The International Top-tier Sheep Breeding System is a comprehensive breeding man
 ## 🏗️ 系统架构 System Architecture
 
 ```mermaid
-graph TB
-    subgraph client["客户端层 Client Layer"]
+graph LR
+    subgraph client["客户端层<br/>Client Layer"]
+        direction TB
         web["Web前端<br/>React"]
         mobile["移动端<br/>React Native"]
         admin["管理后台<br/>Ant Design"]
     end
 
-    subgraph gateway["API网关层 API Gateway"]
-        nginx["Nginx + 认证 + 限流 + 路由"]
+    subgraph gateway["API网关层<br/>API Gateway"]
+        nginx["Nginx<br/>认证+限流+路由"]
     end
 
-    subgraph services["微服务层 Microservices"]
-        user["用户<br/>服务"]
-        sheep["种羊<br/>服务"]
-        pheno["表型<br/>服务"]
-        genome["基因组<br/>服务"]
-        breeding["育种值<br/>服务"]
-        selection["选种<br/>服务"]
-        viz["可视化<br/>服务"]
-        fastapi["FastAPI + Python"]
+    subgraph services["微服务层<br/>Microservices"]
+        direction TB
+        row1["用户 | 种羊 | 表型 | 基因组"]
+        row2["育种值 | 选种 | 可视化"]
+        tech["FastAPI + Python"]
+        row1 -.-> row2
+        row2 -.-> tech
     end
 
-    subgraph compute["计算层 Computation Layer"]
-        julia["Julia 高性能计算引擎<br/>BLUP | GBLUP | ssGBLUP | Bayesian Methods<br/>并行计算 | GPU加速 | 优化算法"]
+    subgraph compute["计算层<br/>Computation"]
+        julia["Julia引擎<br/>BLUP/GBLUP/ssGBLUP<br/>并行+GPU"]
     end
 
-    subgraph data["数据层 Data Layer"]
-        postgres["PostgreSQL<br/>主数据"]
-        timescale["TimescaleDB<br/>时序数据"]
-        minio["MinIO<br/>对象存储"]
-        redis["Redis<br/>缓存"]
-        rabbitmq["RabbitMQ<br/>消息队列"]
+    subgraph data["数据层<br/>Data Layer"]
+        direction TB
+        db["PostgreSQL | TimescaleDB | MinIO"]
+        cache["Redis | RabbitMQ"]
+        db -.-> cache
     end
 
     client -->|HTTPS| gateway
