@@ -28,7 +28,7 @@
 cd "E:\codes\sheep breeding"
 
 # 配置Git用户信息
-git config --global user.name "Your Name"
+git config --global user.name "Bujun Mei"
 git config --global user.email "1958126580@qq.com"
 ```
 
@@ -60,7 +60,7 @@ git commit -m "Initial commit: 国际顶级肉羊育种系统"
 
 ```bash
 # 添加远程仓库（替换为您的实际仓库地址）
-git remote add origin https://github.com/YOUR_USERNAME/Sheep_breeding.git
+git remote add origin https://github.com/1958126580/Sheep_breeding.git
 
 # 推送代码
 git branch -M main
@@ -90,7 +90,7 @@ git push -u origin main
 
 ```bash
 # 使用token作为密码
-git push https://YOUR_USERNAME:YOUR_TOKEN@github.com/YOUR_USERNAME/Sheep_breeding.git main
+git push https://1958126580:YOUR_TOKEN@github.com/1958126580/Sheep_breeding.git main
 ```
 
 ---
@@ -188,7 +188,7 @@ git commit -m "Initial commit: 国际顶级肉羊育种系统
 - 测试套件"
 
 # 7. 在GitHub网站创建仓库后，添加远程仓库
-git remote add origin https://github.com/YOUR_USERNAME/Sheep_breeding.git
+git remote add origin https://github.com/1958126580/Sheep_breeding.git
 
 # 8. 推送
 git push -u origin main
@@ -198,7 +198,7 @@ git push -u origin main
 
 ## 验证上传成功
 
-访问: `https://github.com/YOUR_USERNAME/Sheep_breeding`
+访问: `https://github.com/1958126580/Sheep_breeding`
 
 应该看到所有文件已上传。
 

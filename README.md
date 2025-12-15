@@ -91,7 +91,7 @@ The International Top-tier Sheep Breeding System is a comprehensive breeding man
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/sheep-breeding-system.git
+git clone https://github.com/1958126580/sheep-breeding-system.git
 cd sheep-breeding-system
 
 # 启动所有服务
@@ -245,16 +245,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 团队 Team
 
-- **项目负责人** - [Your Name](https://github.com/yourusername)
+- **项目负责人** - [Bujun Mei](https://github.com/1958126580)
 - **算法开发** - AdvancedGenomics Team
 - **系统架构** - Backend Team
 - **前端开发** - Frontend Team
 
 ## 📮 联系我们 Contact
 
-- 项目主页: https://github.com/yourusername/sheep-breeding-system
-- 问题反馈: https://github.com/yourusername/sheep-breeding-system/issues
-- 邮箱: contact@example.com
+- 项目主页: https://github.com/1958126580/sheep-breeding-system
+- 问题反馈: https://github.com/1958126580/sheep-breeding-system/issues
+- 邮箱: 1958126580@qq.com
 
 ## 🙏 致谢 Acknowledgments
 

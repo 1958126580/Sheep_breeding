@@ -614,7 +614,7 @@ docker-compose up -d --build
 - **文档**: [完整文档](docs/USER_MANUAL_ZH.md)
 - **API 参考**: http://localhost:8000/docs
 - **问题反馈**: GitHub Issues
-- **技术支持**: support@example.com
+- **技术支持**: 1958126580@qq.com
 
 ---
 
