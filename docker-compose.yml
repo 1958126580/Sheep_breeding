@@ -1,0 +1,216 @@
+# ============================================================================
+# 国际顶级肉羊育种系统 - Docker Compose配置
+# International Top-tier Sheep Breeding System - Docker Compose Configuration
+# ============================================================================
+
+version: '3.8'
+
+services:
+  # ==========================================================================
+  # 数据库服务 Database Services
+  # ==========================================================================
+  
+  # PostgreSQL主数据库
+  postgres:
+    image: timescale/timescaledb:latest-pg14
+    container_name: sheep_breeding_postgres
+    environment:
+      POSTGRES_DB: sheep_breeding
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres123}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - sheep_breeding_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  # Redis缓存
+  redis:
+    image: redis:7-alpine
+    container_name: sheep_breeding_redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - sheep_breeding_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  
+  # MinIO对象存储
+  minio:
+    image: minio/minio:latest
+    container_name: sheep_breeding_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    networks:
+      - sheep_breeding_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+  
+  # RabbitMQ消息队列
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: sheep_breeding_rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-guest}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - sheep_breeding_network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  
+  # ==========================================================================
+  # 后端服务 Backend Services
+  # ==========================================================================
+  
+  # FastAPI后端
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sheep_breeding_backend
+    environment:
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-postgres123}@postgres:5432/sheep_breeding
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      RABBITMQ_URL: amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672/
+      JULIA_PATH: /usr/local/julia/bin/julia
+      GPU_ENABLED: ${GPU_ENABLED:-false}
+    volumes:
+      - ./backend:/app
+      - ./julia:/app/julia
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    networks:
+      - sheep_breeding_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+  
+  # Celery Worker
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sheep_breeding_celery_worker
+    environment:
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-postgres123}@postgres:5432/sheep_breeding
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672/
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      JULIA_PATH: /usr/local/julia/bin/julia
+      GPU_ENABLED: ${GPU_ENABLED:-false}
+    volumes:
+      - ./backend:/app
+      - ./julia:/app/julia
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    networks:
+      - sheep_breeding_network
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    command: celery -A tasks.celery_app worker --loglevel=info
+  
+  # ==========================================================================
+  # 前端服务 Frontend Services
+  # ==========================================================================
+  
+  # Web前端
+  frontend:
+    build:
+      context: ./web-frontend
+      dockerfile: Dockerfile
+    container_name: sheep_breeding_frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:8000
+    volumes:
+      - ./web-frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - sheep_breeding_network
+    depends_on:
+      - backend
+    command: npm start
+  
+  # ==========================================================================
+  # Nginx反向代理
+  # ==========================================================================
+  
+  nginx:
+    image: nginx:alpine
+    container_name: sheep_breeding_nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - sheep_breeding_network
+    depends_on:
+      - backend
+      - frontend
+
+# =============================================================================
+# 网络配置 Network Configuration
+# =============================================================================
+
+networks:
+  sheep_breeding_network:
+    driver: bridge
+
+# =============================================================================
+# 数据卷 Volumes
+# =============================================================================
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  minio_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
