@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from pydantic import BaseModel, Field
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from decimal import Decimal
 import logging
 
@@ -422,8 +422,13 @@ async def get_due_vaccinations(
     """获取待接种列表"""
     logger.info(f"获取待接种列表: 未来{days_ahead}天")
     
-    # TODO: 查询next_vaccination_date在未来N天内的记录
-    return []
+    # 查询next_vaccination_date在未来N天内的记录
+    target_date = date.today() + timedelta(days=days_ahead)
+    query = db.query(VaccinationRecord).filter(
+        VaccinationRecord.next_vaccination_date >= date.today(),
+        VaccinationRecord.next_vaccination_date <= target_date
+    )
+    return query.all()
 
 
 # ============================================================================
@@ -456,9 +461,7 @@ async def create_deworming_record(
     
     logger.info(f"创建驱虫记录: animal={record_data.animal_id}, barn={record_data.barn_id}")
     
-    # TODO: 实现数据库操作
-    response = DewormingRecordResponse(
-        id=1,
+    record = DewormingRecord(
         animal_id=record_data.animal_id,
         barn_id=record_data.barn_id,
         deworming_date=record_data.deworming_date,
@@ -469,11 +472,14 @@ async def create_deworming_record(
         target_parasites=record_data.target_parasites,
         withdrawal_days=record_data.withdrawal_days,
         next_deworming_date=record_data.next_deworming_date,
-        administered_by=record_data.administered_by,
-        created_at=datetime.now()
+        administered_by=record_data.administered_by
     )
     
-    return response
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+    
+    return record
 
 
 @router.get("/deworming",
@@ -491,8 +497,13 @@ async def list_deworming_records(
     """获取驱虫记录列表"""
     logger.info("获取驱虫记录列表")
     
-    # TODO: 从数据库查询
-    return []
+    query = db.query(DewormingRecord)
+    if animal_id:
+        query = query.filter(DewormingRecord.animal_id == animal_id)
+    if barn_id:
+        query = query.filter(DewormingRecord.barn_id == barn_id)
+        
+    return query.offset(skip).limit(limit).all()
 
 
 # ============================================================================
@@ -568,12 +579,17 @@ async def get_health_statistics(
     """获取健康统计"""
     logger.info(f"获取健康统计: farm_id={farm_id}")
     
-    # TODO: 从数据库聚合查询
+    logger.info(f"获取健康统计: farm_id={farm_id}")
+    
+    total_checks = db.query(HealthRecord).count()
+    recent = db.query(HealthRecord).filter(HealthRecord.check_date >= date.today() - timedelta(days=7)).count()
+    quarantined = db.query(HealthRecord).filter(HealthRecord.is_quarantined == True).distinct(HealthRecord.animal_id).count()
+    
     return HealthStatistics(
-        total_checks=1250,
-        recent_7days_checks=45,
-        quarantined_count=3,
-        pending_followups=8,
-        vaccination_due_count=120,
-        deworming_due_count=85
+        total_checks=total_checks,
+        recent_7days_checks=recent,
+        quarantined_count=quarantined,
+        pending_followups=db.query(HealthRecord).filter(HealthRecord.follow_up_date >= date.today()).count(),
+        vaccination_due_count=db.query(VaccinationRecord).filter(VaccinationRecord.next_vaccination_date <= date.today() + timedelta(days=7)).count(),
+        deworming_due_count=0
     )

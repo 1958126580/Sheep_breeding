@@ -10,7 +10,7 @@
 1. [环境要求](#一环境要求)
 2. [Docker 快速部署（推荐）](#二docker快速部署推荐)
 3. [手动部署](#三手动部署)
-4. [生产环境部署](#四生产环境部署)
+4. [云端/K8s 部署](#四云端k8s部署)
 5. [验证安装](#五验证安装)
 6. [常见问题](#六常见问题)
 
@@ -345,7 +345,13 @@ gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000
 
 ## 四、生产环境部署
 
-### 4.1 使用 Nginx 反向代理
+### 4.1 云端/Kubernetes 部署 (SaaS)
+
+对于需要大规模运行或提供 SaaS 服务的场景，我们提供了详细的 Kubernetes 部署指南。请参考 [DEPLOYMENT.md](DEPLOYMENT.md) 文档。
+
+### 4.2 单机生产环境部署 (Nginx)
+
+### 4.2.1 使用 Nginx 反向代理
 
 ```bash
 # 安装Nginx

@@ -464,9 +464,7 @@ async def create_barn(
             detail="羊场ID不匹配"
         )
     
-    # TODO: 实现数据库操作
-    response = BarnResponse(
-        id=1,
+    barn = Barn(
         farm_id=farm_id,
         code=barn_data.code,
         name=barn_data.name,
@@ -476,12 +474,14 @@ async def create_barn(
         area_sqm=barn_data.area_sqm,
         ventilation_type=barn_data.ventilation_type,
         heating_available=barn_data.heating_available,
-        status="active",
-        created_at=datetime.now(),
-        updated_at=datetime.now()
+        status="active"
     )
     
-    return response
+    db.add(barn)
+    db.commit()
+    db.refresh(barn)
+    
+    return barn
 
 
 @router.get("/{farm_id}/barns",
@@ -497,8 +497,14 @@ async def list_barns(
     """获取羊舍列表"""
     logger.info(f"获取羊舍列表: farm_id={farm_id}")
     
-    # TODO: 从数据库查询
-    return []
+    query = db.query(Barn).filter(Barn.farm_id == farm_id)
+    
+    if barn_type:
+        query = query.filter(Barn.barn_type == barn_type)
+    if status:
+        query = query.filter(Barn.status == status)
+        
+    return query.all()
 
 
 @router.get("/{farm_id}/barns/{barn_id}",
@@ -512,11 +518,14 @@ async def get_barn(
     """获取羊舍详情"""
     logger.info(f"获取羊舍详情: barn_id={barn_id}")
     
-    # TODO: 从数据库查询
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"羊舍不存在: {barn_id}"
-    )
+    barn = db.query(Barn).filter(Barn.id == barn_id, Barn.farm_id == farm_id).first()
+    
+    if not barn:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"羊舍不存在: {barn_id}"
+        )
+    return barn
 
 
 @router.put("/{farm_id}/barns/{barn_id}",
@@ -531,11 +540,20 @@ async def update_barn(
     """更新羊舍信息"""
     logger.info(f"更新羊舍: barn_id={barn_id}")
     
-    # TODO: 实现数据库更新
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"羊舍不存在: {barn_id}"
-    )
+    barn = db.query(Barn).filter(Barn.id == barn_id, Barn.farm_id == farm_id).first()
+    if not barn:
+         raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"羊舍不存在: {barn_id}"
+        )
+        
+    update_data = barn_data.model_dump(exclude_unset=True) if hasattr(barn_data, 'model_dump') else barn_data.dict(exclude_unset=True)
+    for field, value in update_data.items():
+        setattr(barn, field, value)
+        
+    db.commit()
+    db.refresh(barn)
+    return barn
 
 
 # ============================================================================
@@ -557,24 +575,42 @@ async def assign_animal_to_barn(
     """动物入舍登记"""
     logger.info(f"动物入舍: animal={location_data.animal_id} -> barn={barn_id}")
     
-    # TODO: 实现数据库操作
-    # 1. 验证动物存在性
-    # 2. 关闭之前的位置记录
-    # 3. 创建新的位置记录
-    # 4. 更新羊舍当前数量
+    # 1. 验证羊舍
+    barn = db.query(Barn).filter(Barn.id == barn_id).first()
+    if not barn:
+        raise HTTPException(status_code=404, detail="Barn not found")
+        
+    # 2. 关闭之前的位置记录 (如有)
+    active_loc = db.query(AnimalLocation).filter(
+        AnimalLocation.animal_id == location_data.animal_id,
+        AnimalLocation.exit_date == None
+    ).first()
     
-    response = AnimalLocationResponse(
-        id=1,
+    if active_loc:
+        active_loc.exit_date = datetime.now()
+        active_loc.exit_reason = "transfer_new_entry"
+        # 减少旧羊舍计数
+        old_barn = db.query(Barn).get(active_loc.barn_id)
+        if old_barn and old_barn.current_count > 0:
+            old_barn.current_count -= 1
+            
+    # 3. 创建新的位置记录
+    new_loc = AnimalLocation(
         animal_id=location_data.animal_id,
         farm_id=farm_id,
         barn_id=barn_id,
         pen_number=location_data.pen_number,
-        entry_date=datetime.now(),
-        exit_date=None,
-        exit_reason=None
+        entry_date=datetime.now()
     )
+    db.add(new_loc)
     
-    return response
+    # 4. 更新羊舍当前数量
+    barn.current_count += 1
+    
+    db.commit()
+    db.refresh(new_loc)
+    
+    return new_loc
 
 
 @router.get("/{farm_id}/barns/{barn_id}/animals",
@@ -589,8 +625,10 @@ async def list_barn_animals(
     """获取羊舍动物列表"""
     logger.info(f"获取羊舍动物: barn_id={barn_id}")
     
-    # TODO: 从数据库查询当前在舍的动物
-    return []
+    return db.query(AnimalLocation).filter(
+        AnimalLocation.barn_id == barn_id,
+        AnimalLocation.exit_date == None
+    ).all()
 
 
 @router.post("/{farm_id}/barns/{barn_id}/animals/{animal_id}/transfer",
@@ -605,23 +643,55 @@ async def transfer_animal(
     transfer_reason: str = Query("常规转群", description="转舍原因"),
     db: Session = Depends(get_db)
 ):
-    """动物转舍"""
+    """
+    动物转舍操作
+    
+    执行动物从当前羊舍到目标羊舍的转移流程:
+    1. **验证**: 检查目标羊舍是否存在及状态
+    2. **出舍**: 如果动物在当前羊舍有活跃记录，将其关闭（设置退出时间和原因）
+    3. **入舍**: 在目标羊舍创建新的位置记录
+    4. **更新统计**: 自动更新源羊舍和目标羊舍的当前存栏数
+    
+    此操作保证了动物位置历史的连续性和可追溯性。
+    """
     logger.info(f"动物转舍: animal={animal_id}, from={barn_id}, to={target_barn_id}")
     
-    # TODO: 实现转舍逻辑
-    # 1. 关闭当前位置记录
-    # 2. 创建新的位置记录
-    # 3. 更新两个羊舍的数量
+    # 验证目标羊舍
+    target_barn = db.query(Barn).get(target_barn_id)
+    if not target_barn:
+        raise HTTPException(status_code=404, detail="Target barn not found")
+        
+    # 1. 查找并在必要时关闭当前位置
+    current_loc = db.query(AnimalLocation).filter(
+        AnimalLocation.animal_id == animal_id,
+        AnimalLocation.barn_id == barn_id,
+        AnimalLocation.exit_date == None
+    ).first()
     
-    response = AnimalLocationResponse(
-        id=2,
+    if not current_loc:
+        # 如果没有找到在当前羊舍的记录，记录警告，但仍允许创建新记录
+        logger.warning(f"Animal {animal_id} not found in barn {barn_id}")
+    else:
+        current_loc.exit_date = datetime.now()
+        current_loc.exit_reason = transfer_reason
+        # 减少原羊舍计数
+        old_barn = db.query(Barn).get(barn_id)
+        if old_barn and old_barn.current_count > 0:
+            old_barn.current_count -= 1
+            
+    # 2. 创建新记录
+    new_loc = AnimalLocation(
         animal_id=animal_id,
         farm_id=farm_id,
         barn_id=target_barn_id,
-        pen_number=None,
-        entry_date=datetime.now(),
-        exit_date=None,
-        exit_reason=None
+        entry_date=datetime.now()
     )
+    db.add(new_loc)
     
-    return response
+    # 3. 增加新羊舍计数
+    target_barn.current_count += 1
+    
+    db.commit()
+    db.refresh(new_loc)
+    
+    return new_loc

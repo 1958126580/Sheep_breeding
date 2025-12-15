@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: sheep-breeding
+  labels:
+    app: sheep-breeding
+    component: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sheep-breeding
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: sheep-breeding
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: sheep-breeding/frontend:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: REACT_APP_API_URL
+          value: "https://api.sheep-breeding.com"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: sheep-breeding
+spec:
+  selector:
+    app: sheep-breeding
+    component: frontend
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP

@@ -53,6 +53,16 @@ try:
 except ImportError:
     blockchain = None
 
+try:
+    from . import deep_learning
+except ImportError:
+    deep_learning = None
+
+try:
+    from . import gwas
+except ImportError:
+    gwas = None
+
 # 导出所有可用模块
 __all__ = [
     'breeding_values',
@@ -64,6 +74,8 @@ __all__ = [
     'iot',
     'reports',
     'cloud',
-    'blockchain'
+    'blockchain',
+    'deep_learning',
+    'gwas'
 ]
 

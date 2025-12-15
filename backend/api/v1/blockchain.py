@@ -18,6 +18,8 @@ import json
 import logging
 
 from database import get_db
+from models.blockchain import BlockchainRecord as BlockchainRecordModel, AnimalCertificate as AnimalCertificateModel
+from sqlalchemy import func
 
 logger = logging.getLogger(__name__)
 
@@ -212,21 +214,25 @@ async def submit_record(
     # 模拟上链 (实际应用中调用区块链SDK)
     tx_hash = generate_tx_hash()
     
-    # TODO: 保存到数据库
-    
-    return BlockchainRecord(
-        id=1,
+    record = BlockchainRecordModel(
         tx_hash=tx_hash,
-        block_number=12345678,
+        block_number=12345678, # Mock block
         record_type=request.record_type,
         data_hash=data_hash,
-        metadata={
+        metadata_content={
             "animal_id": request.animal_id,
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
+            "original_data": request.data # Optional: store raw data if needed
         },
         created_at=datetime.now(),
         network=BlockchainNetwork.CONSORTIUM
     )
+    
+    db.add(record)
+    db.commit()
+    db.refresh(record)
+    
+    return record
 
 
 @router.get("/records",
@@ -242,7 +248,31 @@ async def list_records(
 ):
     """获取存证记录列表"""
     logger.info(f"获取存证记录: animal_id={animal_id}")
-    return []
+    
+    query = db.query(BlockchainRecordModel)
+    
+    if record_type:
+        query = query.filter(BlockchainRecordModel.record_type == record_type)
+    
+    # Filter by metadata using JSON operators would depend on DB backend (PG)
+    # Here we do Python side filtering if volume is low, or basic query
+    if start_date:
+        query = query.filter(BlockchainRecordModel.created_at >= start_date)
+    if end_date:
+        query = query.filter(BlockchainRecordModel.created_at <= end_date)
+        
+    records = query.order_by(BlockchainRecordModel.created_at.desc()).limit(limit).all()
+    
+    # Client side filtering for metadata if needed
+    if animal_id:
+        # Assuming metadata has animal_id
+        filtered = []
+        for r in records:
+            if r.metadata_content and r.metadata_content.get("animal_id") == animal_id:
+                filtered.append(r)
+        return filtered
+        
+    return records
 
 
 @router.get("/records/{tx_hash}",
@@ -255,10 +285,14 @@ async def get_record_by_hash(
     """根据交易哈希查询记录"""
     logger.info(f"查询存证记录: tx_hash={tx_hash}")
     
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail="存证记录不存在"
-    )
+    record = db.query(BlockchainRecordModel).filter(BlockchainRecordModel.tx_hash == tx_hash).first()
+    
+    if not record:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="存证记录不存在"
+        )
+    return record
 
 
 @router.post("/records/verify",
@@ -280,12 +314,17 @@ async def verify_record(
     
     data_hash = calculate_data_hash(data)
     
-    # TODO: 从区块链查询原始哈希并比对
+    # 从数据库查询原始哈希并比对
+    record = db.query(BlockchainRecordModel).filter(BlockchainRecordModel.tx_hash == tx_hash).first()
+    
+    verified = False
+    if record and record.data_hash == data_hash:
+        verified = True
     
     return {
         "tx_hash": tx_hash,
         "data_hash": data_hash,
-        "verified": True,  # 模拟验证通过
+        "verified": verified,
         "verification_time": datetime.now().isoformat()
     }
 
@@ -343,7 +382,13 @@ async def list_certificates(
     db: Session = Depends(get_db)
 ):
     """获取证书列表"""
-    return []
+    query = db.query(AnimalCertificateModel)
+    if animal_id:
+        query = query.filter(AnimalCertificateModel.animal_id == animal_id)
+    if certificate_type:
+        query = query.filter(AnimalCertificateModel.certificate_type == certificate_type)
+        
+    return query.all()
 
 
 @router.get("/certificates/{certificate_id}",
@@ -391,31 +436,28 @@ async def get_animal_traceability(
     """获取动物全生命周期溯源"""
     logger.info(f"获取溯源记录: animal={animal_id}")
     
-    # 返回模拟的溯源记录
-    return [
-        TraceabilityRecord(
-            record_id="TR001",
-            animal_id=animal_id,
-            event_type="birth",
-            event_date=datetime(2024, 1, 15, 8, 30),
-            event_location="A区产羔舍",
-            operator="张技术员",
-            data_hash=calculate_data_hash({"event": "birth"}),
-            tx_hash=generate_tx_hash(),
-            verified=True
-        ),
-        TraceabilityRecord(
-            record_id="TR002",
-            animal_id=animal_id,
-            event_type="weaning",
-            event_date=datetime(2024, 3, 15, 10, 0),
-            event_location="B区育肥舍",
-            operator="李技术员",
-            data_hash=calculate_data_hash({"event": "weaning"}),
-            tx_hash=generate_tx_hash(),
-            verified=True
-        )
-    ]
+    """获取动物全生命周期溯源"""
+    logger.info(f"获取溯源记录: animal={animal_id}")
+    
+    # 从BlockchainRecord表中查找该动物的所有记录
+    records = db.query(BlockchainRecordModel).all() # Simple retrieval, filter in loop for JSON
+    
+    trace_list = []
+    for r in records:
+        if r.metadata_content and r.metadata_content.get("animal_id") == animal_id:
+             trace_list.append(TraceabilityRecord(
+                record_id=str(r.id),
+                animal_id=animal_id,
+                event_type=r.record_type,
+                event_date=r.created_at,
+                event_location="System",
+                operator="System",
+                data_hash=r.data_hash,
+                tx_hash=r.tx_hash,
+                verified=True
+            ))
+            
+    return trace_list
 
 
 # ============================================================================
@@ -485,13 +527,19 @@ async def get_blockchain_stats(
     db: Session = Depends(get_db)
 ):
     """获取区块链统计"""
+    
+    total = db.query(BlockchainRecordModel).count()
+    today = db.query(BlockchainRecordModel).filter(func.date(BlockchainRecordModel.created_at) == date.today()).count()
+    cert_total = db.query(AnimalCertificateModel).count()
+    cert_active = db.query(AnimalCertificateModel).count() # Simply all for now
+    
     return BlockchainStats(
-        total_records=15680,
-        records_today=45,
-        total_certificates=3250,
-        active_certificates=2890,
-        total_transfers=1580,
+        total_records=total,
+        records_today=today,
+        total_certificates=cert_total,
+        active_certificates=cert_active,
+        total_transfers=0, # Not implemented table yet
         network_status="healthy",
-        last_block_number=12345678,
+        last_block_number=12345678 + total, # Mock block increment
         last_sync_time=datetime.now()
     )

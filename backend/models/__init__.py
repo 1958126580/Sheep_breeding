@@ -11,6 +11,9 @@ from .reproduction import EstrusRecord, BreedingRecord, PregnancyRecord, Lambing
 from .growth import GrowthRecord
 from .feed import FeedType, FeedFormula, FeedingPlan, FeedingRecord, FeedInventory
 from .iot import IoTDevice, IoTData, AutoWeighingRecord
+from .blockchain import BlockchainRecord, AnimalCertificate
+from .cloud import SyncTask, ShareAgreement, ImportJob, ExportJob
+from .breeding_value import BreedingValueRun, BreedingValueResult
 
 __all__ = [
     # Base
@@ -29,4 +32,10 @@ __all__ = [
     'FeedType', 'FeedFormula', 'FeedingPlan', 'FeedingRecord', 'FeedInventory',
     # IoT
     'IoTDevice', 'IoTData', 'AutoWeighingRecord',
+    # Blockchain
+    'BlockchainRecord', 'AnimalCertificate',
+    # Cloud
+    'SyncTask', 'ShareAgreement', 'ImportJob', 'ExportJob',
+    # Breeding Value
+    'BreedingValueRun', 'BreedingValueResult',
 ]

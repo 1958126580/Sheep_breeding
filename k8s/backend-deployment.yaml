@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: sheep-breeding
+  labels:
+    app: sheep-breeding
+    component: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sheep-breeding
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: sheep-breeding
+        component: backend
+    spec:
+      containers:
+      - name: backend
+        image: sheep-breeding/backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: sheep-breeding-secrets
+              key: database-url
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: sheep-breeding-secrets
+              key: redis-url
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: sheep-breeding
+spec:
+  selector:
+    app: sheep-breeding
+    component: backend
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: ClusterIP

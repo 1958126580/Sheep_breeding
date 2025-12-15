@@ -79,6 +79,18 @@ try:
 except ImportError:
     HAS_BLOCKCHAIN = False
 
+try:
+    from api.v1 import deep_learning
+    HAS_DEEP_LEARNING = True
+except ImportError:
+    HAS_DEEP_LEARNING = False
+
+try:
+    from api.v1 import gwas
+    HAS_GWAS = True
+except ImportError:
+    HAS_GWAS = False
+
 # 占位模块 (待实现)
 auth = None
 animals = None
@@ -319,6 +331,22 @@ if HAS_BLOCKCHAIN:
         blockchain.router,
         prefix="/api/v1/blockchain",
         tags=["区块链溯源 Blockchain Traceability"]
+    )
+
+# 深度学习育种API (新增)
+if HAS_DEEP_LEARNING:
+    app.include_router(
+        deep_learning.router,
+        prefix="/api/v1/deep-learning",
+        tags=["深度学习育种 Deep Learning Breeding"]
+    )
+
+# GWAS分析API (新增)
+if HAS_GWAS:
+    app.include_router(
+        gwas.router,
+        prefix="/api/v1/gwas",
+        tags=["GWAS分析 GWAS Analysis"]
     )
 
 # TODO: 以下模块待实现
