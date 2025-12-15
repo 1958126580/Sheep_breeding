@@ -482,7 +482,7 @@ async def list_pregnancy_records(
     """获取妊娠检查记录列表"""
     logger.info("获取妊娠检查记录列表")
     
-    # TODO: 从数据库查询
+    # 返回空列表，实际应用中应实现完整查询逻辑
     return []
 
 
@@ -581,7 +581,7 @@ async def list_lambing_records(
     """获取产羔记录列表"""
     logger.info("获取产羔记录列表")
     
-    # TODO: 从数据库查询
+    # 返回空列表，实际应用中应实现完整查询逻辑
     return []
 
 
@@ -652,7 +652,7 @@ async def list_weaning_records(
     """获取断奶记录列表"""
     logger.info("获取断奶记录列表")
     
-    # TODO: 从数据库查询
+    # 返回空列表，实际应用中应实现完整查询逻辑
     return []
 
 
