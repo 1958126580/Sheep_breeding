@@ -152,8 +152,8 @@ graph TB
 
 ```bash
 # 克隆仓库
-git clone https://github.com/1958126580/sheep-breeding-system.git
-cd sheep-breeding-system
+git clone https://github.com/1958126580/Sheep_breeding.git
+cd Sheep_breeding
 
 # 启动所有服务
 docker-compose up -d
@@ -313,8 +313,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📮 联系我们 Contact
 
-- 项目主页: https://github.com/1958126580/sheep-breeding-system
-- 问题反馈: https://github.com/1958126580/sheep-breeding-system/issues
+- 项目主页: https://github.com/1958126580/Sheep_breeding
+- 问题反馈: https://github.com/1958126580/Sheep_breeding/issues
 - 邮箱: 1958126580@qq.com
 
 ## 🙏 致谢 Acknowledgments

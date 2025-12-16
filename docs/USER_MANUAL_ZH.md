@@ -251,7 +251,7 @@ sequenceDiagram
 ```bash
 # 1. 克隆代码
 git clone <repository-url>
-cd sheep-breeding-system
+cd Sheep_breeding
 
 # 2. 配置环境变量
 cp .env.example .env

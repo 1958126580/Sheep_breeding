@@ -38,7 +38,7 @@
 ## 项目结构
 
 ```
-sheep-breeding-system/
+Sheep_breeding/
 ├── backend/                 # FastAPI后端
 │   ├── api/                # API路由
 │   │   └── v1/            # API v1版本
@@ -362,8 +362,8 @@ end
 ### 2. 克隆到本地
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sheep-breeding-system.git
-cd sheep-breeding-system
+git clone https://github.com/YOUR_USERNAME/Sheep_breeding.git
+cd Sheep_breeding
 ```
 
 ### 3. 创建特性分支
@@ -441,7 +441,7 @@ A:
 ## 获取帮助
 
 - 📧 邮箱: 1958126580@qq.com
-- 💬 GitHub Issues: https://github.com/1958126580/sheep-breeding-system/issues
+- 💬 GitHub Issues: https://github.com/1958126580/Sheep_breeding/issues
 - 📖 文档: 查看 docs/ 目录
 
 ---

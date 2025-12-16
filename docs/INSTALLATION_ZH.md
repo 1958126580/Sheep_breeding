@@ -64,7 +64,7 @@ docker-compose --version
 
 # 3. 克隆代码
 git clone <repository-url>
-cd sheep-breeding-system
+cd Sheep_breeding
 ```
 
 #### Linux 系统
@@ -84,7 +84,7 @@ newgrp docker
 
 # 4. 克隆代码
 git clone <repository-url>
-cd sheep-breeding-system
+cd Sheep_breeding
 ```
 
 ### 2.2 配置环境变量
@@ -254,9 +254,9 @@ sudo apt install -y python3.11 python3.11-venv python3-pip
 
 # 创建项目目录
 cd /opt
-sudo mkdir sheep-breeding-system
-sudo chown $USER:$USER sheep-breeding-system
-cd sheep-breeding-system
+sudo mkdir Sheep_breeding
+sudo chown $USER:$USER Sheep_breeding
+cd Sheep_breeding
 
 # 克隆代码
 git clone <repository-url> .
@@ -315,7 +315,7 @@ nano .env
 DATABASE_URL=postgresql://sheep_user:your_password@localhost:5432/sheep_breeding
 REDIS_URL=redis://:your_redis_password@localhost:6379/0
 SECRET_KEY=your_secret_key_here
-JULIA_PROJECT_PATH=/opt/sheep-breeding-system/julia
+JULIA_PROJECT_PATH=/opt/Sheep_breeding/julia
 ```
 
 ### 3.6 初始化数据库
@@ -410,7 +410,7 @@ server {
 
     # 静态文件
     location /static {
-        alias /opt/sheep-breeding-system/backend/static;
+        alias /opt/Sheep_breeding/backend/static;
         expires 30d;
     }
 }
@@ -458,9 +458,9 @@ After=network.target postgresql.service redis.service
 Type=notify
 User=www-data
 Group=www-data
-WorkingDirectory=/opt/sheep-breeding-system/backend
-Environment="PATH=/opt/sheep-breeding-system/backend/venv/bin"
-ExecStart=/opt/sheep-breeding-system/backend/venv/bin/gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker -b 127.0.0.1:8000
+WorkingDirectory=/opt/Sheep_breeding/backend
+Environment="PATH=/opt/Sheep_breeding/backend/venv/bin"
+ExecStart=/opt/Sheep_breeding/backend/venv/bin/gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker -b 127.0.0.1:8000
 Restart=always
 RestartSec=10
 
