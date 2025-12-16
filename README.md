@@ -115,25 +115,9 @@ graph TB
     end
 
     subgraph infrastructure["🏗️ 基础设施层 Infrastructure Layer"]
-        direction LR
-
-        subgraph monitoring["监控告警"]
-            prometheus["Prometheus<br/>指标监控"]
-            grafana["Grafana<br/>可视化面板"]
-            elk["ELK Stack<br/>日志分析"]
-        end
-
-        subgraph deployment["部署运维"]
-            docker["Docker<br/>容器化"]
-            k8s["Kubernetes<br/>容器编排"]
-            ci["CI/CD<br/>持续集成/部署"]
-        end
-
-        subgraph security["安全防护"]
-            firewall["防火墙<br/>网络安全"]
-            backup["备份系统<br/>数据备份"]
-            encrypt["加密系统<br/>数据加密"]
-        end
+        direction TB
+        infra_row1["监控: Prometheus·Grafana·ELK | 部署: Docker·K8s·CI/CD"]
+        infra_row2["安全: 防火墙·备份·加密 | 其他: 日志·追踪·告警"]
     end
 
     clients -->|HTTPS| gateway
@@ -141,7 +125,6 @@ graph TB
     microservices --> compute
     compute --> data_layer
     data_layer -.-> infrastructure
-    infrastructure -.-> monitoring
 ```
 
 ## 🚀 快速开始 Quick Start
