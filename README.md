@@ -319,11 +319,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [x] 核心育种值估计算法
 - [x] 基础 Web 界面
-- [ ] 移动端应用
-- [ ] 深度学习育种值预测
-- [ ] GWAS 分析功能
-- [ ] 区块链数据溯源
-- [ ] 云端 SaaS 部署
+- [x] 移动端应用
+- [x] 深度学习育种值预测
+- [x] GWAS 分析功能
+- [x] 区块链数据溯源
+- [x] 云端 SaaS 部署
 
 ---
 
