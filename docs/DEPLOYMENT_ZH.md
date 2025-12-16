@@ -555,7 +555,7 @@ def calculate_breeding_values(trait_name):
 ## 联系支持
 
 - 📧 技术支持: 1958126580@qq.com
-- 📖 文档: https://github.com/1958126580/Sheep_breeding/docs
+- 📖 文档: https://github.com/1958126580/Sheep_breeding/tree/main/docs
 - 🐛 问题反馈: https://github.com/1958126580/Sheep_breeding/issues
 
 ---
