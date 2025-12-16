@@ -27,42 +27,17 @@ The International Top-tier Sheep Breeding System is a comprehensive breeding man
 ## 🏗️ 系统架构 System Architecture
 
 ```mermaid
-graph LR
-    subgraph client["客户端层<br/>Client Layer"]
-        direction TB
-        web["Web前端<br/>React"]
-        mobile["移动端<br/>React Native"]
-        admin["管理后台<br/>Ant Design"]
-    end
+flowchart TD
+    A["🖥️ 客户端层 Client Layer<br/>Web(React) | 移动端(RN) | 管理后台(Ant Design)"]
+    B["🌐 API网关层 API Gateway<br/>Nginx + 认证 + 限流 + 路由"]
+    C["⚙️ 微服务层 Microservices<br/>用户·种羊·表型·基因组·育种值·选种·可视化<br/>FastAPI + Python"]
+    D["🔬 计算层 Computation Layer<br/>Julia高性能计算引擎<br/>BLUP/GBLUP/ssGBLUP + GPU加速"]
+    E["💾 数据层 Data Layer<br/>PostgreSQL·TimescaleDB·MinIO<br/>Redis·RabbitMQ"]
 
-    subgraph gateway["API网关层<br/>API Gateway"]
-        nginx["Nginx<br/>认证+限流+路由"]
-    end
-
-    subgraph services["微服务层<br/>Microservices"]
-        direction TB
-        row1["用户 | 种羊 | 表型 | 基因组"]
-        row2["育种值 | 选种 | 可视化"]
-        tech["FastAPI + Python"]
-        row1 -.-> row2
-        row2 -.-> tech
-    end
-
-    subgraph compute["计算层<br/>Computation"]
-        julia["Julia引擎<br/>BLUP/GBLUP/ssGBLUP<br/>并行+GPU"]
-    end
-
-    subgraph data["数据层<br/>Data Layer"]
-        direction TB
-        db["PostgreSQL | TimescaleDB | MinIO"]
-        cache["Redis | RabbitMQ"]
-        db -.-> cache
-    end
-
-    client -->|HTTPS| gateway
-    gateway --> services
-    services --> compute
-    compute --> data
+    A -->|HTTPS| B
+    B --> C
+    C --> D
+    D --> E
 ```
 
 ## 🚀 快速开始 Quick Start
