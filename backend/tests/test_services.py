@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 服务层单元测试
-# International Top-tier Sheep Breeding System - Service Layer Tests
+# 新星肉羊育种系统 - 服务层单元测试
+# NovaBreed Sheep System - Service Layer Tests
 #
 # 文件: test_services.py
 # 覆盖: CRUD服务层和业务逻辑

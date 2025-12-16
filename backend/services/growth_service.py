@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 生长发育服务层
-# International Top-tier Sheep Breeding System - Growth Service
+# 新星肉羊育种系统 - 生长发育服务层
+# NovaBreed Sheep System - Growth Service
 #
 # 文件: growth_service.py
 # 功能: 生长测定业务逻辑

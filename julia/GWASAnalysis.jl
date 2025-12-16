@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - GWAS全基因组关联分析模块
-# International Top-tier Sheep Breeding System - GWAS Analysis Module
+# 新星肉羊育种系统 - GWAS全基因组关联分析模块
+# NovaBreed Sheep System - GWAS Analysis Module
 #
 # 文件: GWASAnalysis.jl
 # 功能: 全基因组关联分析、QTL定位、曼哈顿图数据

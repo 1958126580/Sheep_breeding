@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 育种值估计API
-# International Top-tier Sheep Breeding System - Breeding Values API
+# 新星肉羊育种系统 - 育种值估计API
+# NovaBreed Sheep System - Breeding Values API
 #
 # 文件: breeding_values.py
 # 功能: 育种值估计相关API端点

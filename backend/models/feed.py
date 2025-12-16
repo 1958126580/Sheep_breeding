@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 饲料数据模型
-# International Top-tier Sheep Breeding System - Feed Models
+# 新星肉羊育种系统 - 饲料数据模型
+# NovaBreed Sheep System - Feed Models
 #
 # 文件: feed.py
 # 功能: 饲料类型、配方、计划、记录、库存ORM模型

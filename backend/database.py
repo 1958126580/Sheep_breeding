@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 数据库连接
-# International Top-tier Sheep Breeding System - Database Connection
+# 新星肉羊育种系统 - 数据库连接
+# NovaBreed Sheep System - Database Connection
 #
 # 文件: database.py
 # 功能: 数据库连接和会话管理

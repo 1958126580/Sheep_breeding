@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 物联网集成API
-# International Top-tier Sheep Breeding System - IoT Integration API
+# 新星肉羊育种系统 - 物联网集成API
+# NovaBreed Sheep System - IoT Integration API
 #
 # 文件: iot.py
 # 功能: 物联网设备管理、数据采集、自动称重API端点

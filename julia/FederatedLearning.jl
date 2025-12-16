@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 联邦学习模块
-# International Top-tier Sheep Breeding System - Federated Learning Module
+# 新星肉羊育种系统 - 联邦学习模块
+# NovaBreed Sheep System - Federated Learning Module
 #
 # 文件: FederatedLearning.jl
 # 功能: 隐私保护的多机构联合育种值估计

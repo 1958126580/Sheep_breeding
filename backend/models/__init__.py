@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 数据模型包
-# International Top-tier Sheep Breeding System - Models Package
+# 新星肉羊育种系统 - 数据模型包
+# NovaBreed Sheep System - Models Package
 # ============================================================================
 
 from .base import BaseModel, TimestampMixin, SoftDeleteMixin

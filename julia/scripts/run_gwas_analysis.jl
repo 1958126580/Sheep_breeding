@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - GWAS分析脚本
-# International Top-tier Sheep Breeding System - GWAS Analysis Script
+# 新星肉羊育种系统 - GWAS分析脚本
+# NovaBreed Sheep System - GWAS Analysis Script
 # ============================================================================
 
 using JSON3

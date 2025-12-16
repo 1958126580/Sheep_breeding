@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 生长发育数据模型
-# International Top-tier Sheep Breeding System - Growth Models
+# 新星肉羊育种系统 - 生长发育数据模型
+# NovaBreed Sheep System - Growth Models
 #
 # 文件: growth.py
 # 功能: 生长记录ORM模型

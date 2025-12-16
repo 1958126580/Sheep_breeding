@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 饲料服务层
-# International Top-tier Sheep Breeding System - Feed Service
+# 新星肉羊育种系统 - 饲料服务层
+# NovaBreed Sheep System - Feed Service
 #
 # 文件: feed_service.py
 # 功能: 饲料类型、配方、饲喂计划、库存业务逻辑

@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <Text style={styles.welcomeText}>欢迎使用</Text>
-          <Text style={styles.appName}>国际顶级肉羊育种系统</Text>
+          <Text style={styles.appName}>新星肉羊育种系统</Text>
         </View>
 
         <View style={styles.statsContainer}>

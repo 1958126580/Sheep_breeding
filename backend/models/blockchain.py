@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 区块链数据模型
-# International Top-tier Sheep Breeding System - Blockchain Database Models
+# 新星肉羊育种系统 - 区块链数据模型
+# NovaBreed Sheep System - Blockchain Database Models
 # ============================================================================
 
 from sqlalchemy import Column, Integer, String, DateTime, Enum as SAEnum, ForeignKey, JSON, Boolean

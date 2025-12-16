@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 饲养管理API
-# International Top-tier Sheep Breeding System - Feeding Management API
+# 新星肉羊育种系统 - 饲养管理API
+# NovaBreed Sheep System - Feeding Management API
 #
 # 文件: feeding.py
 # 功能: 饲料配方、饲喂计划、饲喂记录、库存管理API端点

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 深度学习育种值预测模块
-# International Top-tier Sheep Breeding System - Deep Learning Breeding Module
+# 新星肉羊育种系统 - 深度学习育种值预测模块
+# NovaBreed Sheep System - Deep Learning Breeding Module
 #
 # 文件: DeepLearning.jl
 # 功能: 深度神经网络育种值预测、基因组选择

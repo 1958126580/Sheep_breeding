@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 模型单元测试
-# International Top-tier Sheep Breeding System - Model Unit Tests
+# 新星肉羊育种系统 - 模型单元测试
+# NovaBreed Sheep System - Model Unit Tests
 #
 # 文件: test_models.py
 # 覆盖: 所有SQLAlchemy ORM模型

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - Julia模块测试
-# International Top-tier Sheep Breeding System - Julia Module Tests
+# 新星肉羊育种系统 - Julia模块测试
+# NovaBreed Sheep System - Julia Module Tests
 # ============================================================================
 
 using Test

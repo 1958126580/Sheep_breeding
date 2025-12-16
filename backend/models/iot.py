@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 物联网数据模型
-# International Top-tier Sheep Breeding System - IoT Models
+# 新星肉羊育种系统 - 物联网数据模型
+# NovaBreed Sheep System - IoT Models
 #
 # 文件: iot.py
 # 功能: IoT设备、数据、自动称重ORM模型

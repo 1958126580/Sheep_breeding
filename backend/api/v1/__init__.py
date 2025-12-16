@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - API v1 模块
-# International Top-tier Sheep Breeding System - API v1 Module
+# 新星肉羊育种系统 - API v1 模块
+# NovaBreed Sheep System - API v1 Module
 # ============================================================================
 
 from . import breeding_values

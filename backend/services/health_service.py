@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 健康服务层
-# International Top-tier Sheep Breeding System - Health Service
+# 新星肉羊育种系统 - 健康服务层
+# NovaBreed Sheep System - Health Service
 #
 # 文件: health_service.py
 # 功能: 健康记录、疫苗、驱虫业务逻辑

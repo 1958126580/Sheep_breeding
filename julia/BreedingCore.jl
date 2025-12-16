@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - Julia计算核心
-# International Top-tier Sheep Breeding System - Julia Computation Core
+# 新星肉羊育种系统 - Julia计算核心
+# NovaBreed Sheep System - Julia Computation Core
 #
 # 模块: BreedingCore
 # 功能: 高性能育种值估计算法（BLUP/GBLUP/ssGBLUP）
@@ -668,8 +668,8 @@ end
 
 function __init__()
     println("="^70)
-    println("国际顶级肉羊育种系统 - Julia计算核心")
-    println("International Top-tier Sheep Breeding System")
+    println("新星肉羊育种系统 - Julia计算核心")
+    println("NovaBreed Sheep System")
     println("="^70)
     println("版本: 1.0.0")
     println("Julia版本: $(VERSION)")

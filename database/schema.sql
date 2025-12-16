@@ -1,6 +1,6 @@
 -- ============================================================================
--- 国际顶级肉羊育种系统数据库Schema
--- International Top-tier Sheep Breeding System Database Schema
+-- 新星肉羊育种系统数据库Schema
+-- NovaBreed Sheep System Database Schema
 -- 
 -- 数据库: PostgreSQL 14+
 -- 编码: UTF-8

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - Julia高级算法模块
-# International Top-tier Sheep Breeding System - Advanced Algorithms Module
+# 新星肉羊育种系统 - Julia高级算法模块
+# NovaBreed Sheep System - Advanced Algorithms Module
 #
 # 模块: AdvancedMethods
 # 功能: GBLUP、ssGBLUP、贝叶斯方法等高级算法

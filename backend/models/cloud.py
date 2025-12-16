@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 云端数据交换模型
-# International Top-tier Sheep Breeding System - Cloud Data Exchange Models
+# 新星肉羊育种系统 - 云端数据交换模型
+# NovaBreed Sheep System - Cloud Data Exchange Models
 # ============================================================================
 
 from sqlalchemy import Column, Integer, String, DateTime, Enum as SAEnum, ForeignKey, JSON, Boolean, Date, Float

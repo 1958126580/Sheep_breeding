@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 动物数据模型
-# International Top-tier Sheep Breeding System - Animal Models
+# 新星肉羊育种系统 - 动物数据模型
+# NovaBreed Sheep System - Animal Models
 #
 # 文件: animal.py
 # 功能: 动物、系谱ORM模型

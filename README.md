@@ -1,6 +1,6 @@
-# 国际顶级肉羊育种系统
+# 新星肉羊育种系统
 
-# International Top-tier Sheep Breeding System
+# NovaBreed Sheep System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -9,9 +9,9 @@
 
 ## 📖 项目简介 Project Overview
 
-国际顶级肉羊育种系统是一个达到国际顶级水平的综合性育种管理平台，集成种羊登记、表型记录、基因组数据管理、育种值估计、选种决策支持和可视化工具等核心功能。系统采用现代微服务架构，支持 Web 端和移动端，具备高性能并行计算和 GPU 加速能力。
+新星肉羊育种系统是一个达到国际顶级水平的综合性育种管理平台，集成种羊登记、表型记录、基因组数据管理、育种值估计、选种决策支持和可视化工具等核心功能。系统采用现代微服务架构，支持 Web 端和移动端，具备高性能并行计算和 GPU 加速能力。
 
-The International Top-tier Sheep Breeding System is a comprehensive breeding management platform that reaches international top-tier standards, integrating core functions including animal registration, phenotype recording, genomic data management, breeding value estimation, selection decision support, and visualization tools.
+The NovaBreed Sheep System is a comprehensive breeding management platform that reaches international top-tier standards, integrating core functions including animal registration, phenotype recording, genomic data management, breeding value estimation, selection decision support, and visualization tools.
 
 ### ✨ 核心特性 Key Features
 

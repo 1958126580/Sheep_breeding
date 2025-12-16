@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 综合测试运行器
-# International Top-tier Sheep Breeding System - Comprehensive Test Runner
+# 新星肉羊育种系统 - 综合测试运行器
+# NovaBreed Sheep System - Comprehensive Test Runner
 #
 # 文件: run_all_tests.py
 # 用途: 一键运行所有测试并生成覆盖率报告

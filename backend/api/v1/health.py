@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 健康管理API
-# International Top-tier Sheep Breeding System - Health Management API
+# 新星肉羊育种系统 - 健康管理API
+# NovaBreed Sheep System - Health Management API
 #
 # 文件: health.py
 # 功能: 健康检查、疫苗接种、驱虫、疾病管理API端点

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 生长发育API
-# International Top-tier Sheep Breeding System - Growth Development API
+# 新星肉羊育种系统 - 生长发育API
+# NovaBreed Sheep System - Growth Development API
 #
 # 文件: growth.py
 # 功能: 生长测定、体尺测量、日增重分析API端点

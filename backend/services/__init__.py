@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 服务层包
-# International Top-tier Sheep Breeding System - Services Package
+# 新星肉羊育种系统 - 服务层包
+# NovaBreed Sheep System - Services Package
 # ============================================================================
 
 from .base import BaseService

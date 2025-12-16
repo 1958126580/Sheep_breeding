@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 羊场服务层
-# International Top-tier Sheep Breeding System - Farm Service
+# 新星肉羊育种系统 - 羊场服务层
+# NovaBreed Sheep System - Farm Service
 #
 # 文件: farm_service.py
 # 功能: 羊场、羊舍业务逻辑

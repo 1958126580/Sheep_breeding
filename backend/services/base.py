@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - CRUD基础服务
-# International Top-tier Sheep Breeding System - Base CRUD Service
+# 新星肉羊育种系统 - CRUD基础服务
+# NovaBreed Sheep System - Base CRUD Service
 #
 # 文件: base.py
 # 功能: 提供通用CRUD操作的基类

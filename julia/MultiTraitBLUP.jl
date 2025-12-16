@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 多性状遗传评估模块
-# International Top-tier Sheep Breeding System - Multi-trait Genetic Evaluation
+# 新星肉羊育种系统 - 多性状遗传评估模块
+# NovaBreed Sheep System - Multi-trait Genetic Evaluation
 #
 # 文件: MultiTraitBLUP.jl
 # 功能: 多性状BLUP、随机回归模型、选择指数计算

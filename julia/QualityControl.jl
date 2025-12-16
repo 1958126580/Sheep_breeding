@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 数据质量控制模块
-# International Top-tier Sheep Breeding System - Quality Control Module
+# 新星肉羊育种系统 - 数据质量控制模块
+# NovaBreed Sheep System - Quality Control Module
 #
 # 模块: QualityControl
 # 功能: SNP质控、表型异常检测、系谱验证

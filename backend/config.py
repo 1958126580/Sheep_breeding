@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 配置文件
-# International Top-tier Sheep Breeding System - Configuration
+# 新星肉羊育种系统 - 配置文件
+# NovaBreed Sheep System - Configuration
 #
 # 文件: config.py
 # 功能: 系统配置管理
@@ -22,8 +22,8 @@ class Settings(BaseSettings):
     # Basic Configuration
     # ========================================================================
     
-    APP_NAME: str = "国际顶级肉羊育种系统"
-    APP_NAME_EN: str = "International Top-tier Sheep Breeding System"
+    APP_NAME: str = "新星肉羊育种系统"
+    APP_NAME_EN: str = "NovaBreed Sheep System"
     VERSION: str = "1.0.0"
     ENVIRONMENT: str = "development"  # development, staging, production
     DEBUG: bool = True

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 羊场管理API
-# International Top-tier Sheep Breeding System - Farm Management API
+# 新星肉羊育种系统 - 羊场管理API
+# NovaBreed Sheep System - Farm Management API
 #
 # 文件: farms.py
 # 功能: 羊场、羊舍、动物位置管理API端点

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 健康数据模型
-# International Top-tier Sheep Breeding System - Health Models
+# 新星肉羊育种系统 - 健康数据模型
+# NovaBreed Sheep System - Health Models
 #
 # 文件: health.py
 # 功能: 疾病、健康记录、疫苗、驱虫ORM模型

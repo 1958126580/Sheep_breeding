@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 繁殖服务层
-# International Top-tier Sheep Breeding System - Reproduction Service
+# 新星肉羊育种系统 - 繁殖服务层
+# NovaBreed Sheep System - Reproduction Service
 #
 # 文件: reproduction_service.py
 # 功能: 发情、配种、妊娠、产羔、断奶业务逻辑

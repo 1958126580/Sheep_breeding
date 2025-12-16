@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 测试套件
-# International Top-tier Sheep Breeding System - Test Suite
+# 新星肉羊育种系统 - 测试套件
+# NovaBreed Sheep System - Test Suite
 # ============================================================================
 
 import pytest

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - IoT服务层
-# International Top-tier Sheep Breeding System - IoT Service
+# 新星肉羊育种系统 - IoT服务层
+# NovaBreed Sheep System - IoT Service
 #
 # 文件: iot_service.py
 # 功能: IoT设备、数据、自动称重业务逻辑

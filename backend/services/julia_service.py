@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - Julia服务
-# International Top-tier Sheep Breeding System - Julia Service
+# 新星肉羊育种系统 - Julia服务
+# NovaBreed Sheep System - Julia Service
 #
 # 文件: julia_service.py
 # 功能: Julia运行时管理和计算任务调用

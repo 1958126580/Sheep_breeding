@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 繁殖数据模型
-# International Top-tier Sheep Breeding System - Reproduction Models
+# 新星肉羊育种系统 - 繁殖数据模型
+# NovaBreed Sheep System - Reproduction Models
 #
 # 文件: reproduction.py
 # 功能: 发情、配种、妊娠、产羔、断奶ORM模型

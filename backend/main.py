@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - FastAPI后端主应用
-# International Top-tier Sheep Breeding System - FastAPI Backend Main Application
+# 新星肉羊育种系统 - FastAPI后端主应用
+# NovaBreed Sheep System - FastAPI Backend Main Application
 #
 # 文件: main.py
 # 功能: FastAPI应用入口、路由配置、中间件设置
@@ -140,8 +140,8 @@ async def lifespan(app: FastAPI):
     """
     # 启动
     logger.info("="*70)
-    logger.info("国际顶级肉羊育种系统启动")
-    logger.info("International Top-tier Sheep Breeding System Starting")
+    logger.info("新星肉羊育种系统启动")
+    logger.info("NovaBreed Sheep System Starting")
     logger.info("="*70)
     logger.info(f"环境: {settings.ENVIRONMENT}")
     logger.info(f"数据库: {settings.DATABASE_URL}")
@@ -173,9 +173,9 @@ async def lifespan(app: FastAPI):
 # ============================================================================
 
 app = FastAPI(
-    title="国际顶级肉羊育种系统 API",
+    title="新星肉羊育种系统 API",
     description="""
-    # International Top-tier Sheep Breeding System API
+    # NovaBreed Sheep System API
     
     ## 功能特性 Features
     
@@ -363,8 +363,8 @@ async def root():
     根路由 - 返回API基本信息
     """
     return {
-        "name": "国际顶级肉羊育种系统 API",
-        "name_en": "International Top-tier Sheep Breeding System API",
+        "name": "新星肉羊育种系统 API",
+        "name_en": "NovaBreed Sheep System API",
         "version": "1.0.0",
         "status": "running",
         "docs": "/docs",
@@ -432,7 +432,7 @@ async def system_info():
             "julia_version": settings.JULIA_VERSION
         },
         "application": {
-            "name": "国际顶级肉羊育种系统",
+            "name": "新星肉羊育种系统",
             "version": "1.0.0",
             "environment": settings.ENVIRONMENT
         },

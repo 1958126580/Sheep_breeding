@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 区块链溯源API
-# International Top-tier Sheep Breeding System - Blockchain Traceability API
+# 新星肉羊育种系统 - 区块链溯源API
+# NovaBreed Sheep System - Blockchain Traceability API
 #
 # 文件: blockchain.py
 # 功能: 区块链数据存证、溯源追踪、证书管理API端点

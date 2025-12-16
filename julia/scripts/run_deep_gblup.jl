@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 深度学习GBLUP脚本
-# International Top-tier Sheep Breeding System - DeepGBLUP Script
+# 新星肉羊育种系统 - 深度学习GBLUP脚本
+# NovaBreed Sheep System - DeepGBLUP Script
 # ============================================================================
 
 using JSON3

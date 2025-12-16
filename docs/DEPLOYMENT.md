@@ -1,6 +1,6 @@
 # Cloud Deployment Guide
 
-This guide describes how to deploy the **International Top-tier Sheep Breeding System** to a Kubernetes cluster for SaaS operation.
+This guide describes how to deploy the **NovaBreed Sheep System** to a Kubernetes cluster for SaaS operation.
 
 ## Prerequisites
 

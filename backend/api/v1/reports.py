@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 报表与分析API
-# International Top-tier Sheep Breeding System - Reports API
+# 新星肉羊育种系统 - 报表与分析API
+# NovaBreed Sheep System - Reports API
 #
 # 文件: reports.py
 # 功能: 育种报告、遗传趋势、近交监控、经济效益报表API端点

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 羊场数据模型
-# International Top-tier Sheep Breeding System - Farm Models
+# 新星肉羊育种系统 - 羊场数据模型
+# NovaBreed Sheep System - Farm Models
 #
 # 文件: farm.py
 # 功能: 羊场、羊舍、动物位置ORM模型

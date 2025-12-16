@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 云服务与数据交换API
-# International Top-tier Sheep Breeding System - Cloud Service API
+# 新星肉羊育种系统 - 云服务与数据交换API
+# NovaBreed Sheep System - Cloud Service API
 #
 # 文件: cloud.py
 # 功能: 云端同步、跨机构数据共享、数据标准化API端点

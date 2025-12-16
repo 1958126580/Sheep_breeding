@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - Docker Compose配置
-# International Top-tier Sheep Breeding System - Docker Compose Configuration
+# 新星肉羊育种系统 - Docker Compose配置
+# NovaBreed Sheep System - Docker Compose Configuration
 # ============================================================================
 
 version: '3.8'

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 数据模型基类
-# International Top-tier Sheep Breeding System - Base Models
+# 新星肉羊育种系统 - 数据模型基类
+# NovaBreed Sheep System - Base Models
 #
 # 文件: base.py
 # 功能: SQLAlchemy模型基类和混入类

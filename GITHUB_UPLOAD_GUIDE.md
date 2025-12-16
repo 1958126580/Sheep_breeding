@@ -42,7 +42,7 @@ git init
 git add .
 
 # 创建首次提交
-git commit -m "Initial commit: 国际顶级肉羊育种系统"
+git commit -m "Initial commit: 新星肉羊育种系统"
 ```
 
 ### 步骤 3: 在 GitHub 创建仓库
@@ -51,7 +51,7 @@ git commit -m "Initial commit: 国际顶级肉羊育种系统"
 2. 登录账户
 3. 填写仓库信息：
    - Repository name: `Sheep_breeding`
-   - Description: `国际顶级肉羊育种系统 - International Top-tier Sheep Breeding System`
+   - Description: `新星肉羊育种系统 - NovaBreed Sheep System`
    - 选择 `Public` 或 `Private`
 4. **不要**勾选 "Initialize this repository with a README"
 5. 点击 `Create repository`
@@ -179,7 +179,7 @@ git add .
 git status
 
 # 6. 提交
-git commit -m "Initial commit: 国际顶级肉羊育种系统
+git commit -m "Initial commit: 新星肉羊育种系统
 
 - 完整的后端API (10个模块, 130+端点)
 - Julia计算引擎 (6个模块)

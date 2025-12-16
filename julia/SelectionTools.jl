@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 选种决策支持模块
-# International Top-tier Sheep Breeding System - Selection Decision Support Module
+# 新星肉羊育种系统 - 选种决策支持模块
+# NovaBreed Sheep System - Selection Decision Support Module
 #
 # 模块: SelectionTools
 # 功能: 最优贡献选择、选配优化、近交系数计算

@@ -1,6 +1,6 @@
 # ============================================================================
-# 国际顶级肉羊育种系统 - 繁殖管理API
-# International Top-tier Sheep Breeding System - Reproduction Management API
+# 新星肉羊育种系统 - 繁殖管理API
+# NovaBreed Sheep System - Reproduction Management API
 #
 # 文件: reproduction.py
 # 功能: 发情、配种、妊娠、产羔、断奶管理API端点
