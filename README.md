@@ -29,12 +29,14 @@ The International Top-tier Sheep Breeding System is a comprehensive breeding man
 ```mermaid
 graph TB
     subgraph clients["🖥️ 客户端层 Client Layer"]
+        direction LR
         web["Web前端<br/>React + TypeScript<br/>状态管理: Redux"]
         mobile["移动端<br/>React Native<br/>iOS + Android"]
         admin["管理后台<br/>Ant Design Pro<br/>数据可视化"]
     end
 
     subgraph gateway["🌐 API网关层 API Gateway Layer"]
+        direction LR
         nginx["Nginx<br/>负载均衡 + 反向代理"]
         auth["认证中心<br/>JWT + OAuth2.0"]
         ratelimit["限流控制<br/>Redis + Lua"]
