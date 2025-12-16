@@ -129,6 +129,14 @@ graph TB
     data_layer -.-> infrastructure
 ```
 
+## 📚 文档 Documentation
+
+- [用户手册](docs/USER_MANUAL_ZH.md) - 系统使用指南
+- [API 文档](docs/API_ZH.md) - RESTful API 接口文档
+- [开发者指南](docs/DEVELOPER_GUIDE_ZH.md) - 开发环境搭建和贡献指南
+- [算法参考](docs/ALGORITHM_REFERENCE_ZH.md) - 育种算法详细说明
+- [部署指南](docs/DEPLOYMENT_ZH.md) - 生产环境部署说明
+
 ## 🚀 快速开始 Quick Start
 
 ### 前置要求 Prerequisites
