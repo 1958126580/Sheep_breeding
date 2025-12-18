@@ -1,0 +1,65 @@
+site_name: NovaBreed Sheep System
+site_description: International Top-Tier Sheep Breeding Management System
+site_author: Bujun Mei
+site_url: https://1958126580.github.io/Sheep_breeding/
+
+repo_name: Sheep_breeding
+repo_url: https://github.com/1958126580/Sheep_breeding
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - 首页 Home: index.md
+  - 快速开始 Quick Start: QUICKSTART.md
+  - 用户手册 User Manual: USER_MANUAL_ZH.md
+  - API 文档 API Reference: API_ZH.md
+  - 开发者指南 Developer Guide: 
+      - 指南 Guide: DEVELOPER_GUIDE_ZH.md
+      - 贡献 Contributing: CONTRIBUTING.md
+      - 架构 Architecture: DEPLOYMENT_ZH.md
+  - 算法参考 Algorithms: ALGORITHM_REFERENCE_ZH.md
+  - 安装部署 Installation: INSTALLATION_ZH.md
+  - 安全策略 Security: SECURITY.md
+  - 更新日志 Changelog: CHANGELOG.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/1958126580
