@@ -2,10 +2,14 @@
 
 # NovaBreed Sheep System
 
+[![CI/CD](https://img.shields.io/github/actions/workflow/status/1958126580/Sheep_breeding/ci.yml?branch=main&label=CI%2FCD&logo=github)](https://github.com/1958126580/Sheep_breeding/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Julia 1.12.2](https://img.shields.io/badge/julia-1.12.2-purple.svg)](https://julialang.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub release](https://img.shields.io/github/v/release/1958126580/Sheep_breeding)](https://github.com/1958126580/Sheep_breeding/releases)
 
 ## 📖 项目简介 Project Overview
 
