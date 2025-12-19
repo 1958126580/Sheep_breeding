@@ -307,6 +307,11 @@ cd web-frontend && npm test
 - [x] ✅ GWAS 分析功能
 - [x] ✅ 区块链数据溯源
 - [x] ✅ 安全性增强 (JWT + Rate Limiting)
+- [x] ✅ 数据可视化 (曼哈顿图、遗传趋势图)
+- [x] ✅ 多语言支持 (中/英/蒙)
+- [x] ✅ 数据导入导出 (Excel/CSV)
+- [x] ✅ 报表系统 (自动生成育种报告)
+- [x] ✅ 权限管理 (RBAC)
 - [ ] 🔄 云端 SaaS 部署
 
 ---
