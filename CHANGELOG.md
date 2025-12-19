@@ -5,7 +5,7 @@ All notable changes to the NovaBreed Sheep System will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2024-12-18
+## [1.0.0] - 2025-12-18
 
 ### Added 新增功能
 
@@ -117,7 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.0.0] - 2024-12-19
+## [2.0.0] - 2025-12-19
 
 ### Added 新增功能
 
@@ -257,7 +257,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] 计划功能
 
-### v3.1 Planned Features 近期计划 (2025 Q1)
+### v3.1 Planned Features 近期计划 (2026 Q1)
 
 #### Web 前端完善 Web Frontend Enhancement
 
@@ -301,7 +301,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-### v3.2 Planned Features 中期计划 (2025 Q2)
+### v3.2 Planned Features 中期计划 (2026 Q2)
 
 #### 移动端优化 Mobile Optimization
 
@@ -334,7 +334,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-### v4.0 Planned Features 长期计划 (2025 Q3-Q4)
+### v4.0 Planned Features 长期计划 (2026 Q3-Q4)
 
 #### 高级 AI 功能 Advanced AI Features
 
@@ -376,7 +376,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-### v5.0+ Future Vision 未来愿景 (2026+)
+### v5.0+ Future Vision 未来愿景 (2027+)
 
 #### 元宇宙与 AR/VR 集成 Metaverse & AR/VR Integration
 
