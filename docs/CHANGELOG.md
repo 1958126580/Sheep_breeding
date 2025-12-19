@@ -5,7 +5,7 @@ All notable changes to the NovaBreed Sheep System will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2024-12-18
+## [1.0.0] - 2025-12-18
 
 ### Added 新增功能
 
@@ -117,7 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.0.0] - 2024-12-19
+## [2.0.0] - 2025-12-19
 
 ### Added 新增功能
 
@@ -257,7 +257,126 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] 计划功能
 
-### v4.0 Planned Features 计划中 (2026 Q2)
+### v3.1 Planned Features 近期计划 (2026 Q1)
+
+#### Web 前端完善 Web Frontend Enhancement
+
+- [ ] **完整前端页面开发** - 完成所有核心业务页面
+  - Complete Frontend Pages - All core business pages
+- [ ] **响应式设计优化** - 移动端、平板适配
+  - Responsive Design - Mobile and tablet optimization
+- [ ] **性能优化** - 代码分割、懒加载、缓存策略
+  - Performance Optimization - Code splitting, lazy loading, caching
+- [ ] **用户体验提升** - 加载动画、错误处理、表单验证
+  - UX Improvement - Loading animations, error handling, form validation
+
+#### 数据可视化增强 Enhanced Data Visualization
+
+- [ ] **育种值趋势图** - 多代育种值变化趋势
+  - EBV Trend Charts - Multi-generation breeding value trends
+- [ ] **系谱图可视化** - 交互式家系树展示
+  - Pedigree Visualization - Interactive family tree display
+- [ ] **群体结构分析图** - PCA、群体分层可视化
+  - Population Structure - PCA and stratification visualization
+- [ ] **QQ Plot / Manhattan Plot** - GWAS 结果专业图表
+  - QQ/Manhattan Plots - Professional GWAS result charts
+
+#### 报表系统 Report System
+
+- [ ] **PDF 报告生成** - 育种分析、健康管理报告
+  - PDF Report Generation - Breeding analysis, health reports
+- [ ] **Excel 数据导出** - 自定义字段、批量导出
+  - Excel Export - Custom fields, bulk export
+- [ ] **报表模板管理** - 可自定义报表模板
+  - Report Templates - Customizable templates
+
+#### 系统集成 System Integration
+
+- [ ] **邮件通知系统** - 任务完成、异常告警邮件
+  - Email Notifications - Task completion, alert emails
+- [ ] **短信通知** - 重要事件短信提醒
+  - SMS Notifications - Important event alerts
+- [ ] **日志审计** - 操作日志记录与查询
+  - Audit Logging - Operation logs and queries
+
+---
+
+### v3.2 Planned Features 中期计划 (2026 Q2)
+
+#### 移动端优化 Mobile Optimization
+
+- [ ] **移动端 UI 完善** - 优化移动应用界面和交互
+  - Mobile UI Enhancement - Optimize mobile app interface
+- [ ] **离线模式增强** - 更完善的离线数据同步
+  - Enhanced Offline Mode - Better offline data sync
+- [ ] **推送通知** - 实时消息推送
+  - Push Notifications - Real-time message push
+- [ ] **相机集成** - 拍照记录、图像识别
+  - Camera Integration - Photo recording, image recognition
+
+#### AI 功能初步集成 Initial AI Integration
+
+- [ ] **智能选种建议** - 基于历史数据的选种推荐
+  - Smart Selection Suggestions - Data-driven recommendations
+- [ ] **异常检测** - 自动识别异常数据
+  - Anomaly Detection - Auto-detect abnormal data
+- [ ] **预测分析** - 生长趋势、产羔预测
+  - Predictive Analytics - Growth trends, lambing prediction
+
+#### 数据管理增强 Enhanced Data Management
+
+- [ ] **数据版本控制** - 数据变更历史追踪
+  - Data Version Control - Change history tracking
+- [ ] **数据备份恢复** - 自动备份、一键恢复
+  - Backup & Restore - Auto backup, one-click restore
+- [ ] **数据清理工具** - 重复数据检测、数据质量检查
+  - Data Cleaning Tools - Duplicate detection, quality checks
+
+---
+
+### v4.0 Planned Features 长期计划 (2026 Q3-Q4)
+
+#### 高级 AI 功能 Advanced AI Features
+
+- [ ] **图像识别评分** - 计算机视觉自动体型评分
+  - Image Recognition Scoring - CV-based body scoring
+- [ ] **自然语言查询** - GPT 集成的智能问答系统
+  - Natural Language Query - GPT-integrated Q&A system
+- [ ] **预测性健康监测** - AI 驱动的疾病早期预警
+  - Predictive Health Monitoring - AI-driven early warning
+
+#### 云端服务扩展 Cloud Services Expansion
+
+- [ ] **多租户架构** - 数据隔离的多用户支持
+  - Multi-tenant Architecture - Isolated multi-user support
+- [ ] **自动扩缩容** - Kubernetes 弹性伸缩
+  - Auto Scaling - Kubernetes elastic scaling
+- [ ] **全球 CDN 加速** - 边缘节点全球覆盖
+  - Global CDN - Edge node worldwide coverage
+
+#### 高级数据分析 Advanced Analytics
+
+- [ ] **实时仪表板** - WebSocket 驱动的实时数据可视化
+  - Real-time Dashboard - WebSocket-driven visualization
+- [ ] **自定义报表** - 拖拽式报表生成器
+  - Custom Reports - Drag-and-drop report builder
+- [ ] **数据挖掘** - 智能趋势分析与预测
+  - Data Mining - Intelligent trend analysis and prediction
+- [ ] **基准比较** - 跨场/跨区域性能对比
+  - Benchmark Comparison - Cross-farm/region performance
+
+#### 系统集成 System Integrations
+
+- [ ] **ERP 系统集成** - SAP/用友/金蝶接口
+  - ERP Integration - SAP/Yonyou/Kingdee interfaces
+- [ ] **基因检测对接** - 主流检测平台数据互通
+  - Genotyping Platform Integration - Major platform data exchange
+- [ ] **政府平台上报** - 畜牧业监管数据自动报送
+  - Government Platform Reporting - Automated regulatory data submission
+
+---
+
+### v5.0+ Future Vision 未来愿景 (2027+)
 
 #### 元宇宙与 AR/VR 集成 Metaverse & AR/VR Integration
 
@@ -287,35 +406,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] 转录组-基因组联合分析 - 多组学数据整合
 - [ ] 单细胞测序支持 - 细胞级别基因表达分析
 
-### v5.0 Planned Features 计划中 (2026 Q4)
-
-#### 全球化与多区域部署 Global & Multi-Region
+#### 全球化与可持续发展 Global & Sustainability
 
 - [ ] 全球多区域数据中心 - 亚太/欧洲/北美节点
 - [ ] 跨境数据合规 - GDPR/中国数据安全法/CCPA
-- [ ] 多语言扩展 - 阿拉伯语/西班牙语/法语/俄语
-- [ ] 国际育种标准对接 - Interbull/ICAR 数据交换
-
-#### 科研协作平台 Research Collaboration
-
-- [ ] 学术论文集成 - 自动文献检索与引用生成
-- [ ] 数据共享市场 - 安全的表型/基因组数据交易平台
-- [ ] 联合分析工作台 - 多机构协作计算环境
-- [ ] 开放 API 生态 - 第三方开发者 SDK 和应用市场
-
-#### 碳中和与可持续发展 Carbon Neutral & Sustainability
-
 - [ ] 碳足迹追踪 - 个体/群体/产品全链路碳排放计算
 - [ ] 环境育种指数 - 低甲烷/高饲料效率性状选育
-- [ ] ESG 报告自动生成 - 可持续发展报告模板
-- [ ] 草地碳汇评估 - 牧场碳固定能力评估集成
-
-#### 量子计算准备 Quantum Computing Ready
-
-- [ ] 量子算法预研 - 量子 BLUP/量子优化算法
-- [ ] 混合量子-经典计算接口 - IBM/Google 量子云对接
-- [ ] 量子安全加密 - 后量子密码学数据保护
-- [ ] 量子随机数生成 - 真随机数种群遗传模拟
 
 ---
 
@@ -335,7 +431,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RBAC permission management - RBAC 权限管理
 - Multi-language support - 多语言支持
 
-### [1.0.0] - 2024-12-18
+### [1.0.0] - 2025-12-18
 
 - Initial release - 首次发布
 - Core breeding management system - 核心育种管理系统
