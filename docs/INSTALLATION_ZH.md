@@ -611,11 +611,11 @@ docker-compose up -d --build
 
 ## 📞 获取帮助
 
-- **文档**: [完整文档](docs/USER_MANUAL_ZH.md)
+- **文档**: [完整文档](USER_MANUAL_ZH.md)
 - **API 参考**: http://localhost:8000/docs
 - **问题反馈**: GitHub Issues
 - **技术支持**: 1958126580@qq.com
 
 ---
 
-**安装完成后，建议阅读 [用户使用手册](docs/USER_MANUAL_ZH.md) 了解系统功能。**
+**安装完成后，建议阅读 [用户使用手册](USER_MANUAL_ZH.md) 了解系统功能。**

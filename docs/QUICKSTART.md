@@ -85,9 +85,9 @@ print(response.json())
 
 #### Need Help?
 
-- 📖 [Full User Manual](docs/USER_MANUAL_ZH.md)
-- 🔧 [Installation Guide](docs/INSTALLATION_ZH.md)
-- 🚀 [Deployment Guide](docs/DEPLOYMENT_ZH.md)
+- 📖 [Full User Manual](USER_MANUAL_ZH.md)
+- 🔧 [Installation Guide](INSTALLATION_ZH.md)
+- 🚀 [Deployment Guide](DEPLOYMENT_ZH.md)
 - 💬 [GitHub Issues](https://github.com/1958126580/Sheep_breeding/issues)
 
 ---
@@ -173,9 +173,9 @@ print(response.json())
 
 #### 需要帮助？
 
-- 📖 [完整用户手册](docs/USER_MANUAL_ZH.md)
-- 🔧 [安装指南](docs/INSTALLATION_ZH.md)
-- 🚀 [部署指南](docs/DEPLOYMENT_ZH.md)
+- 📖 [完整用户手册](USER_MANUAL_ZH.md)
+- 🔧 [安装指南](INSTALLATION_ZH.md)
+- 🚀 [部署指南](DEPLOYMENT_ZH.md)
 - 💬 [GitHub Issues](https://github.com/1958126580/Sheep_breeding/issues)
 
 ---
@@ -184,20 +184,20 @@ print(response.json())
 
 ### For Users
 
-- Read the [User Manual](docs/USER_MANUAL_ZH.md) for detailed feature explanations
-- Explore the [API Documentation](docs/API_ZH.md) for all available endpoints
+- Read the [User Manual](USER_MANUAL_ZH.md) for detailed feature explanations
+- Explore the [API Documentation](API_ZH.md) for all available endpoints
 - Check out example workflows in the documentation
 
 ### For Developers
 
-- Review the [Developer Guide](docs/DEVELOPER_GUIDE_ZH.md)
+- Review the [Developer Guide](DEVELOPER_GUIDE_ZH.md)
 - Read the [Contributing Guide](CONTRIBUTING.md)
 - Set up your development environment
 - Run the test suite: `pytest tests/ -v`
 
 ### For Administrators
 
-- Follow the [Deployment Guide](docs/DEPLOYMENT_ZH.md) for production setup
+- Follow the [Deployment Guide](DEPLOYMENT_ZH.md) for production setup
 - Configure monitoring and logging
 - Set up backup strategies
 - Review security best practices
@@ -219,7 +219,7 @@ print(response.json())
 
 ## 📞 Support
 
-- **Documentation**: [docs/](docs/)
+- **Documentation**: [Documentation](./)
 - **Issues**: https://github.com/1958126580/Sheep_breeding/issues
 - **Email**: 1958126580@qq.com
 
