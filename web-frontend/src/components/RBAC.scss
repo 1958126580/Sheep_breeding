@@ -1,0 +1,62 @@
+.rbac-manager {
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h3 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .table-toolbar {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ant-table {
+    .ant-table-thead > tr > th {
+      background: #fafafa;
+      font-weight: 600;
+    }
+  }
+
+  .ant-tree {
+    .ant-tree-treenode {
+      padding: 4px 0;
+    }
+
+    .ant-tree-title {
+      font-size: 14px;
+    }
+  }
+}
+
+.permission-drawer {
+  .ant-drawer-body {
+    padding: 16px;
+  }
+
+  .module-section {
+    margin-bottom: 24px;
+
+    .module-header {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .permission-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+}
