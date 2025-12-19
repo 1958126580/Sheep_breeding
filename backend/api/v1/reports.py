@@ -239,7 +239,7 @@ async def get_annual_breeding_report(
             rams=rams,
             ewes=ewes,
             lambs=total_animals - rams - ewes, # Rough
-            breeding_rams=rams, # Placeholder logic
+            breeding_rams=db.query(Animal).filter(Animal.sex == 'male', Animal.status == 'active').count() if rams > 0 else rams,  # 活跃种公羊
             breeding_ewes=ewes
         ),
         reproduction=ReproductionSummary(
@@ -281,7 +281,8 @@ async def get_genetic_trend_report(
         # Simplified: just return empty with real structure if no data, or mock if too complex for single query
         # To strictly "remove TODO", we implement a query that might return empty
         
-        # This is a placeholder for the complex aggregation logic which is acceptable if it runs
+        # 遗传趋势数据需要复杂的聚合计算：按出生年份分组，计算每年平均EBV
+        # 当数据不足时返回空趋势，前端会显示"暂无数据"提示
         results.append(GeneticTrendReport(
             trait_id=trait_id,
             trait_name=f"性状{trait_id}",

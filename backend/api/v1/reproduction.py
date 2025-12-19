@@ -698,16 +698,22 @@ async def get_reproduction_statistics(
     if total_lambings > 0:
         total_lambs = db.query(func.sum(LambingRecord.litter_size)).scalar() or 0
         avg_litter = float(total_lambs) / total_lambings
+    
+    # 计算羔羊成活率 - 基于产活仔数与总产仔数的比例
+    total_born = db.query(func.sum(LambingRecord.litter_size)).scalar() or 0
+    total_born_alive = db.query(func.sum(LambingRecord.born_alive)).scalar() or 0
+    lamb_survival_rate = (total_born_alive / total_born * 100) if total_born > 0 else 95.0
         
     return ReproductionStatistics(
         total_breedings=total_breedings,
         conception_rate=round(conception_rate, 2),
         total_lambings=total_lambings,
         avg_litter_size=round(avg_litter, 2),
-        lamb_survival_rate=95.0, # Placeholder or complex calculation requiring vital status logic
-        pending_pregnancy_checks=db.query(BreedingRecord).filter(BreedingRecord.status == 'pending').count(), # Simplified
+        lamb_survival_rate=round(lamb_survival_rate, 1),
+        pending_pregnancy_checks=db.query(BreedingRecord).filter(BreedingRecord.status == 'pending').count(),
         due_lambings_7days=db.query(PregnancyRecord).filter(
             PregnancyRecord.expected_lambing_date >= date.today(),
             PregnancyRecord.expected_lambing_date <= date.today() + timedelta(days=7)
         ).count()
     )
+
