@@ -1,0 +1,61 @@
+.breeding-analysis-page {
+  .stats-row {
+    margin-bottom: 24px;
+
+    .ant-card {
+      border-radius: 12px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .ant-statistic-title {
+      font-size: 14px;
+    }
+
+    .ant-statistic-content {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .main-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .ant-card-body {
+      padding: 24px;
+    }
+
+    .table-toolbar {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .ant-table {
+      .ant-table-thead > tr > th {
+        background: #fafafa;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .result-content {
+    .ant-statistic {
+      text-align: center;
+    }
+  }
+}
+
+// 响应式
+@media (max-width: 768px) {
+  .breeding-analysis-page {
+    .stats-row .ant-col {
+      margin-bottom: 16px;
+    }
+  }
+}
