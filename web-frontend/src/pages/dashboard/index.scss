@@ -1,0 +1,107 @@
+.dashboard-page {
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+
+    .header-left {
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .stats-row {
+    .stat-card {
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .stat-title {
+        font-size: 14px;
+        color: #8c8c8c;
+      }
+
+      .trend-indicator {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  .overview-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .welcome-content {
+      h4 {
+        margin-bottom: 16px;
+      }
+
+      .feature-tags {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
+  }
+
+  .health-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .health-item {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        color: #666;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .dashboard-page {
+    .dashboard-header {
+      flex-direction: column;
+      gap: 16px;
+
+      .header-right {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .dashboard-page {
+    .stat-card,
+    .overview-card,
+    .health-card {
+      background: #1f1f1f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
